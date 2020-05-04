@@ -1,13 +1,13 @@
 body {
   margin: 0;
 }
-main,
+section.advice-container,
 section.attribution {
   height: 90vh;
   padding: 5vh 5vw;
 }
 
-main {
+section.advice-container {
   display: flex;
   flex-direction: column;
   background-color: yellow;
@@ -15,13 +15,13 @@ main {
   align-items: center;
 }
 
-section.advice-container {
+section.advice-container > div {
   height: 50vh;
   display: flex;
   align-items: center;
 }
 
-h2 {
+blockquote p {
   font-size: 3vmax;
   text-align: center;
 }
