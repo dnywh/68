@@ -9,10 +9,13 @@ element.textContent = randomItem;
 // 1. Create the button
 const button = document.createElement("button");
 button.innerHTML = "↑ Show me another";
+button.classList.add("button", "primary");
 
 // 2. Append somewhere
-const body = document.getElementsByTagName("section")[0];
-body.appendChild(button);
+const learnMoreButton = document.getElementById("learn-more-button");
+const buttonContainer = document.getElementById("button-container");
+buttonContainer.appendChild(button);
+button.after(learnMoreButton);
 
 // 3. Add event handler
 button.addEventListener("click", function () {

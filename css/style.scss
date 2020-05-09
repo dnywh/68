@@ -1,0 +1,63 @@
+// Variables
+@import "variables";
+
+// Buttons
+@import "buttons";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  scroll-snap-type: y mandatory;
+}
+
+// Two sections
+.advice-container,
+.attribution-container {
+  height: 80vh;
+  padding: 10vh 5vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// Top section
+.advice-container {
+  background-color: $colour-black;
+  color: $colour-white;
+
+  blockquote {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 3vmax;
+      text-align: center;
+    }
+  }
+}
+
+#button-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+// Bottom section
+.attribution-container {
+  background-color: $colour-white;
+  color: $colour-black;
+
+  .button.secondary {
+    background-color: $colour-white;
+    color: $colour-black;
+    border: 2px solid $colour-black;
+
+    &:hover,
+    &:focus {
+      background-color: $colour-black;
+      color: $colour-white;
+    }
+  }
+}

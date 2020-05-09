@@ -1,0 +1,52 @@
+// Button and styled buttons
+// Reset them
+.button {
+  all: unset;
+  //   all: revert;
+  height: 6rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.2rem;
+  transition: all 150ms ease-in-out, transform 0ms ease;
+}
+
+// Reset a tags
+a.button {
+  text-decoration: none;
+  display: block;
+  // Center content
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.primary:hover,
+.button.primary:focus {
+  background-color: $colour-black;
+  color: $colour-white;
+}
+.button:active {
+  opacity: 0.5;
+  //   transform: scale(0.9);
+}
+
+button.primary,
+.button.primary {
+  background-color: $colour-white;
+  color: $colour-black;
+  border: 2px solid $colour-white;
+}
+
+button.secondary,
+.button.secondary {
+  background-color: $colour-black;
+  color: $colour-white;
+  border: 2px solid $colour-white;
+}
+
+.button.secondary:hover,
+.button.secondary:focus {
+  background-color: $colour-white;
+  color: $colour-black;
+}
