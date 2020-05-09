@@ -1,0 +1,30 @@
+{
+  "name": "68",
+  "version": "1.0.0",
+  "description": "Solicited unsolicited advice from Kevin Kelly.",
+  "main": "app.js",
+  "dependencies": {
+    "scroll-behavior-polyfill": "^2.0.13",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyalright/68.git"
+  },
+  "keywords": [
+    "css",
+    "generator",
+    "random"
+  ],
+  "author": "Danny White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannyalright/68/issues"
+  },
+  "homepage": "https://github.com/dannyalright/68#readme"
+}

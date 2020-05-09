@@ -26,16 +26,19 @@ a.button {
           justify-content: center;
 }
 
-.button.primary:hover,
-.button.primary:focus {
-  background-color: #2e2e2e;
-  color: #ffffff;
-}
-
 button.primary,
 .button.primary {
   background-color: #ffffff;
   color: #000000;
+  -webkit-text-fill-color: #000000;
+  border: 2px solid #ffffff;
+}
+
+.button.primary:hover,
+.button.primary:focus {
+  background-color: #000000;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
   border: 2px solid #ffffff;
 }
 
@@ -43,6 +46,7 @@ button.secondary,
 .button.secondary {
   background-color: #000000;
   color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
   border: 2px solid #ffffff;
 }
 
@@ -53,7 +57,8 @@ button.secondary,
 }
 
 @media (min-width: 769px) {
-  #learn-more-button {
+  #learn-more-button,
+  #back-up-button {
     display: none;
   }
 }
