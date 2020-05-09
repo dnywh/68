@@ -25,9 +25,18 @@ showAnotherButton.after(learnMoreButton);
 
 // 3. Prepare function to handle getting a random string
 function showRandomAdvice() {
+  element.classList.add("end-pos");
   randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
-  element.textContent = randomItem;
-  showAnotherButton.innerHTML = "↑ And another";
+
+  setTimeout(function () {
+    element.textContent = randomItem;
+    element.classList.remove("end-pos");
+    element.classList.add("start-pos");
+    showAnotherButton.innerHTML = "↑ And another";
+  }, 200);
+  setTimeout(function () {
+    element.classList.remove("start-pos");
+  }, 400);
 }
 
 // 4. Add event handlers to relevant buttons

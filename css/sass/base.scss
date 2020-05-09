@@ -16,4 +16,8 @@ body {
 
 blockquote {
   all: unset;
+
+  p {
+    margin-top: 0;
+  }
 }

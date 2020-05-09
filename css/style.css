@@ -70,6 +70,9 @@ body {
 blockquote {
   all: unset;
 }
+blockquote p {
+  margin-top: 0;
+}
 
 #advice-container,
 #attribution-container {
@@ -94,12 +97,23 @@ blockquote {
 #advice-container blockquote {
   height: 50vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 #advice-container blockquote p {
-  font-size: 3vmax;
-  text-align: center;
+  font-size: 6vmin;
+  transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+#advice-container blockquote p.start-pos {
+  opacity: 0;
+  transform: translate(0, 1rem);
+}
+#advice-container blockquote p.end-pos {
+  opacity: 0;
+  transform: translate(0, -1rem);
+}
+@media (min-width: 769px) {
+  #advice-container blockquote p {
+    font-size: 4vmin;
+  }
 }
 
 #button-container {
