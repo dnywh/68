@@ -73,6 +73,7 @@ blockquote {
 
 #advice-container,
 #attribution-container {
+  scroll-snap-align: start;
   height: 80vh;
   padding: 10vh 5vw;
   display: flex;
