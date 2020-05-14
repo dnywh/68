@@ -12,8 +12,12 @@
   flex-direction: column;
   justify-content: space-between;
 
+  // Animate the background colour changes
+  transition: background 800ms ease;
+
+  // Make each section 50/50 on larger screens
   @media (min-width: variables.$breakpoint-tablet) {
-    flex: 1;
+    flex-basis: 50%;
   }
 }
 
@@ -54,8 +58,8 @@
     font-size: 0.875rem;
     // Position
     position: absolute;
-    top: variables.$spacing-edge;
-    right: variables.$spacing-edge;
+    top: variables.$unit-edge;
+    right: variables.$unit-edge;
     // Rotate
     writing-mode: vertical-rl;
     margin: 0;
@@ -65,10 +69,10 @@
   p:nth-child(2) {
     text-align: right;
     // Calculate variable width with a nice inner buffer
-    max-width: calc(100% - #{variables.$spacing-edge * 2});
+    max-width: calc(100% - #{variables.$unit-edge * 2});
     // Position
     position: absolute;
-    bottom: variables.$spacing-edge;
-    right: variables.$spacing-edge;
+    bottom: variables.$unit-edge;
+    right: variables.$unit-edge;
   }
 }

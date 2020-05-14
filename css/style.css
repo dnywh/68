@@ -1,57 +1,30 @@
-.button {
+button {
   all: unset;
-  height: 6rem;
-  box-sizing: border-box;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 10rem;
   cursor: pointer;
   text-align: center;
-  font-size: 1.2rem;
-  transition: all 150ms ease-in-out, transform 0ms ease;
+  font-size: 1.25rem;
+  transition: all 150ms ease;
+  background-color: black;
+  color: white;
+  -webkit-text-fill-color: white;
+  border: 2px solid white;
 }
 
-a.button {
-  text-decoration: none;
-  display: block;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button.primary,
-.button.primary {
-  background-color: #ffffff;
-  color: #000000;
-  -webkit-text-fill-color: #000000;
-  border: 2px solid #ffffff;
-}
-
-.button.primary:hover,
-.button.primary:focus {
+button:hover,
+button:focus {
   background-color: #000000;
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
   border: 2px solid #ffffff;
 }
 
-button.secondary,
-.button.secondary {
-  background-color: #000000;
-  color: #ffffff;
-  -webkit-text-fill-color: #ffffff;
-  border: 2px solid #ffffff;
+button:active {
+  transform: scale(0.9);
 }
 
-.button.secondary:hover,
-.button.secondary:focus {
-  background-color: #2e2e2e;
-  color: #ffffff;
-}
-
-@media (min-width: 769px) {
-  #learn-more-button,
-#back-up-button {
-    display: none;
-  }
-}
 html {
   scroll-behavior: smooth;
 }
@@ -84,11 +57,12 @@ blockquote p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: background 800ms ease;
 }
 @media (min-width: 769px) {
   #advice-section,
 #attribution-section {
-    flex: 1;
+    flex-basis: 50%;
   }
 }
 
