@@ -1,5 +1,11 @@
 // Bring in advice as array of strings
 import { adviceArray } from "/advice.js";
+import { colorsArray } from "/colors.js";
+
+// Add a background colour the advice section and prepare the counter
+const adviceSection = document.getElementById("advice-section");
+let counter = 0;
+adviceSection.style.backgroundColor = colorsArray[counter];
 
 // Target the element to house the chosen string
 const element = document.getElementById("advice");
@@ -9,19 +15,13 @@ let randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
 // Add random item to element for page load
 element.textContent = randomItem;
 
-// Prepare the secondary button for later
-const backUpButton = document.getElementById("back-up-button");
-
 // 1. Create the main button
-const showAnotherButton = document.createElement("button");
-showAnotherButton.innerHTML = "↑ Show me another";
-showAnotherButton.classList.add("button", "primary");
+const button = document.createElement("button");
+button.innerHTML = "Show me another";
 
 // 2. Append main button to page
-const learnMoreButton = document.getElementById("learn-more-button");
-const buttonContainer = document.getElementById("button-container");
-buttonContainer.appendChild(showAnotherButton);
-showAnotherButton.after(learnMoreButton);
+const buttonContainer = document.getElementById("advice-section");
+buttonContainer.appendChild(button);
 
 // 3. Prepare function to handle getting a random string
 function showRandomAdvice() {
@@ -32,7 +32,7 @@ function showRandomAdvice() {
     element.textContent = randomItem;
     element.classList.remove("end-pos");
     element.classList.add("start-pos");
-    showAnotherButton.innerHTML = "↑ And another";
+    button.innerHTML = "And another";
   }, 200);
   setTimeout(function () {
     element.classList.remove("start-pos");
@@ -40,5 +40,4 @@ function showRandomAdvice() {
 }
 
 // 4. Add event handlers to relevant buttons
-showAnotherButton.addEventListener("click", showRandomAdvice);
-backUpButton.addEventListener("click", showRandomAdvice);
+button.addEventListener("click", showRandomAdvice);
