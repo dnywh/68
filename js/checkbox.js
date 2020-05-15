@@ -4,43 +4,48 @@ const checkbox = document.querySelector("input[name=allowShake]");
 
 // See first browser supports DeviceMotionEvent
 if (window.DeviceMotionEvent) {
-  console.log("DeviceMotionEvent is supported");
+  // console.log("DeviceMotionEvent is supported");
   // ...if DeviceMotionEvent is supported, load the script and handler
   // TODO Enable checkboxContainer only if DeviceMotionEvent supported
   loadScript("js/shake.js", setUpShakeHandler);
-} else {
-  console.log("DeviceMotionEvent not supported");
 }
 // Functions:
 // Function for handling the response to a shake
 function setUpShakeHandler() {
-  console.log("Setting up Shake Handler...");
+  // console.log("Setting up Shake Handler...");
   // Enable checkbox for switch permission
   checkboxContainer.style.display = "inline";
   // Listen to checkbox events
   checkbox.addEventListener("change", function () {
     if (this.checked) {
       // Checkbox is checked..
-      console.log("Checkbox checked");
-      console.log(DeviceMotionEvent.requestPermission);
+      console.log("Checkbox checked ON: begin looking for permission and starting shake");
+      // console.log(DeviceMotionEvent.requestPermission);
+      // Only fire permission request if it exists in browser
       if (DeviceMotionEvent.requestPermission !== undefined) {
-        requestMotionPermission();
-      } else {
-        console.log("no permission needed, carry on");
+        DeviceMotionEvent.requestPermission()
+          .then((response) => {
+            if (response == "granted") {
+              console.log("response granted, keeping checkbox ON and enabling shake");
+              // Do Shake.js stuff
+              const shakeEvent = new Shake({ threshold: 2 });
+              // Start listening to device motion
+              shakeEvent.start();
+              // Register a shake event listener with function
+              window.addEventListener("shake", handleRefresh, false);
+            } else {
+              // TODO Turn checkbox off
+            }
+          })
+          .catch(console.error);
       }
     } else {
-      // Checkbox is not checked..
-      console.log("Checkbox not checked");
+      // Checkbox is checked OFF
+      console.log("Checkbox checked OFF: turn off shake");
+      // TODO stop shake
+      // shakeEvent.stop();
     }
   });
-
-  //   Do Shake.js stuff
-
-  // var shakeEvent = new Shake({ threshold: 2 });
-  // //   Start listening to device motion
-  // shakeEvent.start();
-  // //   Register a shake event listener with function
-  // window.addEventListener("shake", handleRefresh, false);
 }
 
 // Function for handling the load of shake.js when applicable
@@ -61,24 +66,6 @@ function loadScript(src, callbackfn) {
   document.documentElement.firstChild.appendChild(newScript);
 }
 
-// Function for getting permission to access DeviceMotion
-function requestMotionPermission() {
-  DeviceMotionEvent.requestPermission()
-    .then((response) => {
-      if (response == "granted") {
-        console.log("response granted, turning on checkbox and enabled shake");
-      }
-    })
-    .catch(console.error);
+function handleRefresh() {
+  console.log("shaking!!!");
 }
-
-checkbox.addEventListener("change", function () {
-  if (this.checked) {
-    // Checkbox is checked..
-    console.log("Checkbox checked");
-    requestMotionPermission();
-  } else {
-    // Checkbox is not checked..
-    console.log("Checkbox not checked");
-  }
-});
