@@ -1,6 +1,8 @@
 // Get checkbox-container
 const checkboxContainer = document.getElementById("checkbox-container");
 const checkbox = document.querySelector("input[name=allowShake]");
+const checkboxSwitchSpan = document.getElementById("switch-span");
+console.log(checkboxSwitchSpan.textContent);
 
 // See first browser supports DeviceMotionEvent
 if (window.DeviceMotionEvent) {
@@ -12,23 +14,22 @@ if (window.DeviceMotionEvent) {
 // Functions:
 // Function for handling the response to a shake
 function setUpShakeHandler() {
-  // console.log("Setting up Shake Handler...");
+  // Set up shakeEvent
+  const shakeEvent = new Shake({ threshold: 2 });
   // Enable checkbox for switch permission
   checkboxContainer.style.display = "inline";
   // Listen to checkbox events
   checkbox.addEventListener("change", function () {
     if (this.checked) {
       // Checkbox is checked..
+      checkboxSwitchSpan.textContent = "on";
       console.log("Checkbox checked ON: begin looking for permission and starting shake");
-      // console.log(DeviceMotionEvent.requestPermission);
       // Only fire permission request if it exists in browser
       if (DeviceMotionEvent.requestPermission !== undefined) {
         DeviceMotionEvent.requestPermission()
           .then((response) => {
             if (response == "granted") {
               console.log("response granted, keeping checkbox ON and enabling shake");
-              // Do Shake.js stuff
-              const shakeEvent = new Shake({ threshold: 2 });
               // Start listening to device motion
               shakeEvent.start();
               // Register a shake event listener with function
@@ -36,15 +37,18 @@ function setUpShakeHandler() {
             } else {
               // TODO Turn checkbox off
               checkbox.checked = false;
+              checkboxSwitchSpan.textContent = "off";
             }
           })
           .catch(console.error);
       }
     } else {
       // Checkbox is checked OFF
+      checkbox.checked = false;
+      checkboxSwitchSpan.textContent = "off";
       console.log("Checkbox checked OFF: turn off shake");
       // TODO stop shake
-      // shakeEvent.stop();
+      shakeEvent.stop();
     }
   });
 }

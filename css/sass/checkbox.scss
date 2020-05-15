@@ -13,3 +13,9 @@
     }
   }
 }
+
+// Stop highlight on tap
+input,
+label {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
