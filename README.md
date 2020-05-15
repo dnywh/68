@@ -1,13 +1,27 @@
 # 68
 
-Solicited unsolicited advice.
+Solicited unsolicited advice from Kevin Kelly, served one at a time.
 
 ## Running locally
 
 `live-server`
+
 `sass --watch css/sass/index.scss css/style.css`
 
 ## Credits
+
+### Content
+
+Advice content comes (with permission from Kevin Kelly's [68 Bits of Unsolicited Advice](https://kk.org/thetechnium/68-bits-of-unsolicited-advice/).
+
+### Type
+
+[PT Root UI](https://www.paratype.com/fonts/pt/pt-root-ui/vf)
+
+Copyright (c) 2018, Paratype Inc (https://paratype.com), Copyright (c) 2018, Paratype Ltd,
+with Reserved Font Name "PT Root UI".
+
+### Everything else
 
 - Public Sans
   - Wholegrain Digital for guide on how to use

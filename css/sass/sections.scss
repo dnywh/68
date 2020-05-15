@@ -32,12 +32,14 @@
   background-color: variables.$color-initial;
   // Clip text if necessary
   overflow: hidden;
+  word-wrap: break-word;
+  // hyphens: auto;
 
   blockquote {
     // Optically set width
     width: 90%;
     @media (min-width: variables.$breakpoint-tablet) {
-      width: 80%;
+      width: 85%;
     }
 
     p {

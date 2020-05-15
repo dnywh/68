@@ -1,21 +1,7 @@
 @font-face {
-  font-family: "Public Sans";
+  font-family: "PTRootUIWebVF";
+  src: url("/fonts/PT%20Root%20UI_VF.eot");
+  src: url("/fonts/PT%20Root%20UI_VF.eot?#iefix") format("embedded-opentype"), url("/fonts/PT%20Root%20UI_VF.woff2") format("woff2"), url("/fonts/PT%20Root%20UI_VF.woff") format("woff"), url("/fonts/PT%20Root%20UI_VF.ttf") format("truetype");
+  font-weight: 400 700;
   font-style: normal;
-  font-weight: 400;
-  src: local("Public Sans");
-  //     url('/fonts/awesome.woff2') format('woff2'),
-  //     url('/fonts/awesome.woff') format('woff'),
-  //     url('/fonts/awesome.ttf') format('truetype'),
-  //     url('/fonts/awesome.eot') format('embedded-opentype');
-}
-
-@font-face {
-  font-family: "Public Sans";
-  font-style: bold;
-  font-weight: 700;
-  src: local("Public Sans Bold");
-  //     url('/fonts/awesome-i.woff2') format('woff2'),
-  //     url('/fonts/awesome-i.woff') format('woff'),
-  //     url('/fonts/awesome-i.ttf') format('truetype'),
-  //     url('/fonts/awesome-i.eot') format('embedded-opentype');
 }
