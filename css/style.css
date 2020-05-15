@@ -19,10 +19,12 @@ button {
   text-align: center;
   font-size: 1.25rem;
   transition: all 150ms ease;
+  font-weight: bold;
   background-color: black;
   color: white;
   -webkit-text-fill-color: white;
   border: 2px solid white;
+  box-sizing: border-box;
 }
 
 button:hover,
@@ -113,11 +115,31 @@ a:hover {
     font-size: 4vmin;
   }
 }
+@media (min-width: 769px) {
+  #advice-section button {
+    display: none;
+  }
+}
 
 #attribution-section {
   position: relative;
 }
-#attribution-section p:nth-child(1) {
+#attribution-section button {
+  display: none;
+}
+@media (min-width: 769px) {
+  #attribution-section button {
+    display: inline;
+    position: absolute;
+    top: calc(50% - 5rem);
+    left: calc(50% - 5rem);
+    background-color: #fec300;
+    border: 2px solid black;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+}
+#attribution-section p:first-of-type {
   font-size: 0.875rem;
   position: absolute;
   top: 2rem;
@@ -125,10 +147,10 @@ a:hover {
   writing-mode: vertical-rl;
   margin: 0;
 }
-#attribution-section p:nth-child(1) a {
+#attribution-section p:first-of-type a {
   border-left: 2px solid #fec300;
 }
-#attribution-section p:nth-child(2) {
+#attribution-section p:last-of-type {
   text-align: right;
   line-height: 163.5%;
   max-width: calc(100% - 4rem);
@@ -136,7 +158,7 @@ a:hover {
   bottom: 2rem;
   right: 2rem;
 }
-#attribution-section p:nth-child(2) a {
+#attribution-section p:last-of-type a {
   border-bottom: 2px solid #fec300;
 }
 

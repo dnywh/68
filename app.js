@@ -2,7 +2,7 @@
 import { adviceArray } from "/advice.js";
 import { colorsArray, changeColor } from "/colors.js";
 
-// Add a background colour the advice section and prepare the counter
+// Add a background colour the advice-section and prepare the counter
 const adviceSection = document.getElementById("advice-section");
 let counter = 0;
 adviceSection.style.backgroundColor = colorsArray[counter];
@@ -19,21 +19,23 @@ let randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
 // Add random item to element for page load
 element.textContent = randomItem;
 
-// 1. Create the main button
-const button = document.createElement("button");
-button.innerHTML = "Show me<br> another";
-
-// 2. Append main button to page
-const buttonContainer = document.getElementById("advice-section");
-buttonContainer.appendChild(button);
+// 1. Access buttons
+const buttons = Array.from(document.getElementsByTagName("button"));
+// Get the first, in advice-section, button
+const buttonOne = buttons[0];
+// Get the second, in attribution-section, button
+const buttonTwo = buttons[1];
+// Set button content
+buttons.forEach((button) => (button.innerHTML = "Show me<br> another"));
 
 // changeColor(counter - 1, colorsArray, adviceSection, links);
+const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
 // 3. Prepare function to handle getting a random string
 function showRandomAdvice() {
   // Running function...
   // Handle colour changing
-  counter = changeColor(counter, colorsArray, adviceSection, links);
+  counter = changeColor(counter, colorsArray, elementsForBackgroundColorChange, links);
 
   element.classList.add("end-pos");
   randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
@@ -42,7 +44,7 @@ function showRandomAdvice() {
     element.textContent = randomItem;
     element.classList.remove("end-pos");
     element.classList.add("start-pos");
-    button.innerHTML = "And<br> another";
+    buttons.forEach((button) => (button.innerHTML = "And<br> another"));
   }, 200);
   setTimeout(function () {
     element.classList.remove("start-pos");
@@ -51,7 +53,8 @@ function showRandomAdvice() {
 
 // 4. Add event handlers to relevant interactions
 // Handle on button click
-button.addEventListener("click", showRandomAdvice);
+buttons.forEach((button) => button.addEventListener("click", showRandomAdvice));
+// buttonOne.addEventListener("click", showRandomAdvice);
 // Handle on spacebar or arrow-right key press
 document.addEventListener("keyup", (event) => {
   if (event.code === "Space" || event.code === "ArrowRight") {

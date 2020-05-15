@@ -3,7 +3,6 @@
 // Reset them
 button {
   all: unset;
-  //   all: revert;
   width: variables.$unit-button;
   height: variables.$unit-button;
   border-radius: variables.$unit-button;
@@ -14,15 +13,16 @@ button {
   transition: all variables.$transition-basic;
 
   // Set a slight inner padding to force spacing
-  // box-sizing: border-box;
   // padding: 0.25rem;
 
   // Style
+  font-weight: bold;
   background-color: black;
   color: white;
-  // https://stackoverflow.com/a/54101412/2009441
   -webkit-text-fill-color: white;
   border: 2px solid white;
+  // Force border inside
+  box-sizing: border-box;
 }
 
 button:hover,

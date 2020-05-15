@@ -48,6 +48,13 @@
       }
     }
   }
+
+  button {
+    // Don't show if screen is wide-enough for other button
+    @media (min-width: variables.$breakpoint-tablet) {
+      display: none;
+    }
+  }
 }
 
 // Second section
@@ -55,8 +62,27 @@
   // Allow the contents to be positioned and sized absolutely later on
   position: relative;
 
+  button {
+    // Don't show by default
+    display: none;
+
+    // Only show if screen is wide enough for other button to hide
+    @media (min-width: variables.$breakpoint-tablet) {
+      display: inline;
+      // Position the button
+      position: absolute;
+      top: calc(50% - #{variables.$unit-button / 2});
+      left: calc(50% - #{variables.$unit-button / 2});
+      // Apply specific styling
+      background-color: variables.$color-initial;
+      border: 2px solid black;
+      color: black;
+      -webkit-text-fill-color: black;
+    }
+  }
+
   // Style the site credits
-  p:nth-child(1) {
+  p:first-of-type {
     font-size: 0.875rem;
     // Position
     position: absolute;
@@ -73,7 +99,7 @@
   }
 
   // Style the advice credits
-  p:nth-child(2) {
+  p:last-of-type {
     text-align: right;
     line-height: 163.5%;
     // Calculate variable width with a nice inner buffer

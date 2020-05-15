@@ -2,7 +2,7 @@ export const colorsArray = ["#FEC300", "#BDD00C", "#77D6BE", "#3D98C1", "#F6517A
 // Note that the first colour is manually set as $color-initial in SCSS
 
 // Function for swapping through colours
-export function changeColor(count, array, bgElement, linksCollection) {
+export function changeColor(count, array, bgElements, linksCollection) {
   // If at end of array...
   if (count == array.length - 1) {
     // Reset
@@ -13,7 +13,7 @@ export function changeColor(count, array, bgElement, linksCollection) {
     count += 1;
   }
   // Apply background colour according to array
-  bgElement.style.backgroundColor = array[count];
+  bgElements.forEach((element) => (element.style.backgroundColor = array[count]));
 
   // Turn links HTMLCollection into an array
   Array.from(linksCollection).forEach(
