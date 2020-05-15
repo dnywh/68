@@ -29,6 +29,8 @@
 
     p {
       font-size: 6vmin;
+      font-weight: bold;
+      line-height: 163.5%;
       transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
 
       &.start-pos {
@@ -73,6 +75,7 @@
   // Style the advice credits
   p:nth-child(2) {
     text-align: right;
+    line-height: 163.5%;
     // Calculate variable width with a nice inner buffer
     max-width: calc(100% - #{variables.$unit-edge * 2});
     // Position

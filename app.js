@@ -31,6 +31,7 @@ buttonContainer.appendChild(button);
 
 // 3. Prepare function to handle getting a random string
 function showRandomAdvice() {
+  // Running function...
   // Handle colour changing
   counter = changeColor(counter, colorsArray, adviceSection, links);
 
@@ -48,5 +49,12 @@ function showRandomAdvice() {
   }, 400);
 }
 
-// 4. Add event handlers to relevant buttons
+// 4. Add event handlers to relevant interactions
+// Handle on button click
 button.addEventListener("click", showRandomAdvice);
+// Handle on spacebar or arrow-right key press
+document.addEventListener("keyup", (event) => {
+  if (event.code === "Space" || event.code === "ArrowRight") {
+    showRandomAdvice();
+  }
+});
