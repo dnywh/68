@@ -52,7 +52,7 @@
   button {
     // Position the button
     position: absolute;
-    bottom: calc(#{variables.$unit-edge-small} * 2);
+    bottom: variables.$unit-edge-small;
     // Optically align left side of button
     left: calc(#{variables.$unit-edge-small} - 0.5rem);
     // Style the button

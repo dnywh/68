@@ -112,7 +112,7 @@ a:hover {
 }
 #advice-section button {
   position: absolute;
-  bottom: calc(2rem * 2);
+  bottom: 2rem;
   left: calc(2rem - 0.5rem);
   font-size: 1rem;
   width: 8rem;
