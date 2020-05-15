@@ -128,7 +128,7 @@
   // Style the advice credits
   p:last-of-type {
     text-align: right;
-    line-height: 163.5%;
+    line-height: variables.$unit-line-height;
     // Calculate variable width with a nice inner buffer
     max-width: calc(100% - #{variables.$unit-edge-small * 3});
     // Position

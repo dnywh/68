@@ -201,6 +201,8 @@ a:hover {
 }
 #checkbox-container label {
   font-size: 0.75rem;
+  display: block;
+  line-height: 163.5%;
 }
 #checkbox-container label span {
   color: grey;

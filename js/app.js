@@ -3,7 +3,7 @@ import { adviceArray } from "./advice.js";
 // Bring in colours
 import { colorsArray, changeColor } from "./colors.js";
 // Bring in checkbox script
-import * as checkbox from "./checkbox.js";
+import "./checkbox.js";
 
 // Add a background colour the advice-section and prepare the counter
 const adviceSection = document.getElementById("advice-section");
@@ -35,7 +35,7 @@ buttons.forEach((button) => (button.innerHTML = "Show me<br> another"));
 const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
 // 3. Prepare function to handle getting a random string
-function showRandomAdvice() {
+function showStaticRandomAdvice() {
   // Handle colour changing
   counter = changeColor(counter, colorsArray, elementsForBackgroundColorChange, links);
   // Animate out old advice
@@ -58,12 +58,12 @@ function showRandomAdvice() {
 
 // 4. Add event handlers to relevant interactions:
 // Handle on button click
-buttons.forEach((button) => button.addEventListener("click", showRandomAdvice));
-// buttonOne.addEventListener("click", showRandomAdvice);
+buttons.forEach((button) => button.addEventListener("click", showStaticRandomAdvice));
+// buttonOne.addEventListener("click", showStaticRandomAdvice);
 // Handle on spacebar or arrow-right key press
 document.addEventListener("keyup", (event) => {
   if (event.code === "Space" || event.code === "ArrowRight") {
-    showRandomAdvice();
+    showStaticRandomAdvice();
   }
 });
 

@@ -2,7 +2,8 @@
 const checkboxContainer = document.getElementById("checkbox-container");
 const checkbox = document.querySelector("input[name=allowShake]");
 const checkboxSwitchSpan = document.getElementById("switch-span");
-console.log(checkboxSwitchSpan.textContent);
+
+console.log("Hello from checkbox.js");
 
 // See first browser supports DeviceMotionEvent
 if (window.DeviceMotionEvent) {
@@ -23,7 +24,7 @@ function setUpShakeHandler() {
     if (this.checked) {
       // Checkbox is checked..
       checkboxSwitchSpan.textContent = "on";
-      console.log("Checkbox checked ON: begin looking for permission and starting shake");
+      console.log("Checkbox checked ON: begin asking for permission and starting shake");
       // Only fire permission request if it exists in browser
       if (DeviceMotionEvent.requestPermission !== undefined) {
         DeviceMotionEvent.requestPermission()
@@ -35,7 +36,7 @@ function setUpShakeHandler() {
               // Register a shake event listener with function
               window.addEventListener("shake", handleRefresh, false);
             } else {
-              // TODO Turn checkbox off
+              // No permission granted: turn checkbox back off
               checkbox.checked = false;
               checkboxSwitchSpan.textContent = "off";
             }
@@ -43,11 +44,11 @@ function setUpShakeHandler() {
           .catch(console.error);
       }
     } else {
-      // Checkbox is checked OFF
+      // Turn checkbox off
       checkbox.checked = false;
       checkboxSwitchSpan.textContent = "off";
       console.log("Checkbox checked OFF: turn off shake");
-      // TODO stop shake
+      // Stop shakeEvent
       shakeEvent.stop();
     }
   });
