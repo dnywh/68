@@ -11,7 +11,7 @@ button {
   cursor: pointer;
   text-align: center;
   font-size: 1.25rem;
-  transition: all 150ms ease;
+  transition: all variables.$transition-basic;
 
   // Set a slight inner padding to force spacing
   // box-sizing: border-box;

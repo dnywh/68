@@ -42,11 +42,23 @@ body {
   }
 }
 
-blockquote {
+blockquote,
+cite,
+a {
   all: unset;
 }
+
 blockquote p {
   margin-top: 0;
+}
+
+a {
+  font-weight: bold;
+  transition: border-color 800ms ease, color 150ms ease;
+}
+a:hover {
+  cursor: pointer;
+  color: #fec300;
 }
 
 #advice-section,
@@ -99,12 +111,18 @@ blockquote p {
   writing-mode: vertical-rl;
   margin: 0;
 }
+#attribution-section p:nth-child(1) a {
+  border-left: 2px solid #fec300;
+}
 #attribution-section p:nth-child(2) {
   text-align: right;
   max-width: calc(100% - 4rem);
   position: absolute;
   bottom: 2rem;
   right: 2rem;
+}
+#attribution-section p:nth-child(2) a {
+  border-bottom: 2px solid #fec300;
 }
 
 /*# sourceMappingURL=style.css.map */

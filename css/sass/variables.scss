@@ -2,6 +2,7 @@
 $colour-black: #000000;
 $colour-grey: #2e2e2e;
 $colour-white: #ffffff;
+$color-initial: #fec300;
 
 // Breakpoints
 $breakpoint-tablet: 769px;
@@ -9,3 +10,7 @@ $breakpoint-tablet: 769px;
 // Units
 $unit-edge: 2rem;
 $unit-button: 10rem;
+
+// Transitions
+$transition-basic: 150ms ease;
+$transition-color: 800ms ease;

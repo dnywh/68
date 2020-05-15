@@ -13,7 +13,7 @@
   justify-content: space-between;
 
   // Animate the background colour changes
-  transition: background 800ms ease;
+  transition: background variables.$transition-color;
 
   // Make each section 50/50 on larger screens
   @media (min-width: variables.$breakpoint-tablet) {
@@ -63,6 +63,11 @@
     // Rotate
     writing-mode: vertical-rl;
     margin: 0;
+
+    a {
+      // Create left border as the writing mode as been changed
+      border-left: 2px solid variables.$color-initial;
+    }
   }
 
   // Style the advice credits
@@ -74,5 +79,10 @@
     position: absolute;
     bottom: variables.$unit-edge;
     right: variables.$unit-edge;
+
+    a {
+      // Create bottom border
+      border-bottom: 2px solid variables.$color-initial;
+    }
   }
 }

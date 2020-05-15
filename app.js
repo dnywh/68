@@ -7,9 +7,13 @@ const adviceSection = document.getElementById("advice-section");
 let counter = 0;
 adviceSection.style.backgroundColor = colorsArray[counter];
 
+// Get all elements with an underline so their bottom border can be recoloured dynamically
+const links = document.getElementsByTagName("a");
+
+// Style `button` fill
+
 // Target the element to house the chosen string
 const element = document.getElementById("advice");
-
 // Get a random item from advice array
 let randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
 // Add random item to element for page load
@@ -23,10 +27,12 @@ button.innerHTML = "Show me<br> another";
 const buttonContainer = document.getElementById("advice-section");
 buttonContainer.appendChild(button);
 
+// changeColor(counter - 1, colorsArray, adviceSection, links);
+
 // 3. Prepare function to handle getting a random string
 function showRandomAdvice() {
   // Handle colour changing
-  counter = changeColor(counter, colorsArray, adviceSection);
+  counter = changeColor(counter, colorsArray, adviceSection, links);
 
   element.classList.add("end-pos");
   randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
@@ -44,20 +50,3 @@ function showRandomAdvice() {
 
 // 4. Add event handlers to relevant buttons
 button.addEventListener("click", showRandomAdvice);
-
-// Storage ———————————————————————————————————
-function changeColorStatic() {
-  // If at end of array...
-  if (counter == colorsArray.length - 1) {
-    // Reset
-    counter = 0;
-    // If somewhere else in colorsArray
-  } else {
-    // Add one to counter
-    counter += 1;
-  }
-  console.log(counter, colorsArray[counter]);
-  // Apply colour according to colorsArray
-  adviceSection.style.backgroundColor = colorsArray[counter];
-  // return (counter += 1);
-}

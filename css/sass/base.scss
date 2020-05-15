@@ -17,10 +17,24 @@ body {
   }
 }
 
-blockquote {
+// Remove default formatting from some HTML elements
+blockquote,
+cite,
+a {
   all: unset;
+}
 
-  p {
-    margin-top: 0;
+// Format some elements
+blockquote p {
+  margin-top: 0;
+}
+
+a {
+  font-weight: bold;
+  transition: border-color variables.$transition-color, color variables.$transition-basic;
+
+  &:hover {
+    cursor: pointer;
+    color: variables.$color-initial;
   }
 }
