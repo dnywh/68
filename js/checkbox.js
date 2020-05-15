@@ -35,6 +35,7 @@ function setUpShakeHandler() {
               window.addEventListener("shake", handleRefresh, false);
             } else {
               // TODO Turn checkbox off
+              checkbox.checked = false;
             }
           })
           .catch(console.error);
