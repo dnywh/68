@@ -1,12 +1,16 @@
 export function resizeText(textLength, element) {
   const monotonicNumber = (1.1 / textLength) * 1000;
-  const mappedSize = scaleValue(monotonicNumber, [1, 30], [10, 30]);
+  const mappedFontSize = scaleValue(monotonicNumber, [1, 30], [10, 30]);
+  const mappedLineHeight = scaleValue(monotonicNumber, [1, 30], [160, 130]);
 
   if (window.innerWidth >= 768) {
-    element.style.fontSize = `${mappedSize / 6}rem`;
+    element.style.fontSize = `${mappedFontSize / 6}rem`;
+    element.style.lineHeight = `${mappedLineHeight / 1}%`;
   } else {
-    element.style.fontSize = `${mappedSize / 10}rem`;
+    element.style.fontSize = `${mappedFontSize / 10}rem`;
+    element.style.lineHeight = `${mappedLineHeight / 1}%`;
   }
+  console.log(element.style.lineHeight);
 }
 
 function scaleValue(value, from, to) {

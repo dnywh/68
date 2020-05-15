@@ -34,6 +34,12 @@
   overflow: hidden;
 
   blockquote {
+    // Optically set width
+    width: 90%;
+    @media (min-width: variables.$breakpoint-tablet) {
+      width: 80%;
+    }
+
     p {
       font-weight: bold;
       line-height: 163.5%;
