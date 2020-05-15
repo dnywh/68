@@ -1,21 +1,21 @@
 @font-face {
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Public Sans'),
-         url('/fonts/awesome.woff2') format('woff2'), 
-         url('/fonts/awesome.woff') format('woff'),
-         url('/fonts/awesome.ttf') format('truetype'),
-         url('/fonts/awesome.eot') format('embedded-opentype');
-  }
-  
-  @font-face {
-    font-family: 'Public Sans';
-    font-style: bold;
-    font-weight: 700;
-    src: local('Public Sans Bold'),
-         url('/fonts/awesome-i.woff2') format('woff2'), 
-         url('/fonts/awesome-i.woff') format('woff'),
-         url('/fonts/awesome-i.ttf') format('truetype'),
-         url('/fonts/awesome-i.eot') format('embedded-opentype');
-  }
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Public Sans");
+  //     url('/fonts/awesome.woff2') format('woff2'),
+  //     url('/fonts/awesome.woff') format('woff'),
+  //     url('/fonts/awesome.ttf') format('truetype'),
+  //     url('/fonts/awesome.eot') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: "Public Sans";
+  font-style: bold;
+  font-weight: 700;
+  src: local("Public Sans Bold");
+  //     url('/fonts/awesome-i.woff2') format('woff2'),
+  //     url('/fonts/awesome-i.woff') format('woff'),
+  //     url('/fonts/awesome-i.ttf') format('truetype'),
+  //     url('/fonts/awesome-i.eot') format('embedded-opentype');
+}

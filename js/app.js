@@ -1,6 +1,9 @@
 // Bring in advice as array of strings
-import { adviceArray } from "/advice.js";
-import { colorsArray, changeColor } from "/colors.js";
+import { adviceArray } from "./advice.js";
+// Bring in colours
+import { colorsArray, changeColor } from "./colors.js";
+// Bring in checkbox script
+import * as checkbox from "./checkbox.js";
 
 // Add a background colour the advice-section and prepare the counter
 const adviceSection = document.getElementById("advice-section");
@@ -10,14 +13,14 @@ adviceSection.style.backgroundColor = colorsArray[counter];
 // Get all elements with an underline so their bottom border can be recoloured dynamically
 const links = document.getElementsByTagName("a");
 
-// Style `button` fill
-
 // Target the element to house the chosen string
 const advice = document.getElementById("advice");
 // Get a random item from advice array
 let randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
 // Set advice to random string for page load
 advice.textContent = randomItem;
+// Adjust font-size depending on length of advice string
+resizeText(randomItem.length, advice);
 
 // 1. Access buttons
 const buttons = Array.from(document.getElementsByTagName("button"));
@@ -53,7 +56,7 @@ function showRandomAdvice() {
   }, 400);
 }
 
-// 4. Add event handlers to relevant interactions
+// 4. Add event handlers to relevant interactions:
 // Handle on button click
 buttons.forEach((button) => button.addEventListener("click", showRandomAdvice));
 // buttonOne.addEventListener("click", showRandomAdvice);

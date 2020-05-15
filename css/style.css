@@ -2,13 +2,13 @@
   font-family: "Public Sans";
   font-style: normal;
   font-weight: 400;
-  src: local("Public Sans"), url("/fonts/awesome.woff2") format("woff2"), url("/fonts/awesome.woff") format("woff"), url("/fonts/awesome.ttf") format("truetype"), url("/fonts/awesome.eot") format("embedded-opentype");
+  src: local("Public Sans");
 }
 @font-face {
   font-family: "Public Sans";
   font-style: bold;
   font-weight: 700;
-  src: local("Public Sans Bold"), url("/fonts/awesome-i.woff2") format("woff2"), url("/fonts/awesome-i.woff") format("woff"), url("/fonts/awesome-i.ttf") format("truetype"), url("/fonts/awesome-i.eot") format("embedded-opentype");
+  src: local("Public Sans Bold");
 }
 button {
   all: unset;
@@ -106,7 +106,6 @@ a:hover {
   overflow: hidden;
 }
 #advice-section blockquote p {
-  font-size: 6vmin;
   font-weight: bold;
   line-height: 163.5%;
   transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -197,10 +196,15 @@ a:hover {
   border-bottom: 2px solid #fec300;
 }
 
-@media (min-width: 768px) {
-  #checkbox-container {
-    display: none;
-  }
+#checkbox-container {
+  display: none;
+}
+#checkbox-container label {
+  font-size: 0.75rem;
+}
+#checkbox-container label span {
+  color: grey;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=style.css.map */

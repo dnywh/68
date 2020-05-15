@@ -1,8 +1,15 @@
 @use "variables";
 
 #checkbox-container {
-  // Only show on smaller screens that are probably shakeable
-  @media (min-width: variables.$breakpoint-tablet) {
-    display: none;
+  // Don't display by default
+  // (Only display later on if the script detects it can be handled)
+  display: none;
+
+  label {
+    font-size: 0.75rem;
+    span {
+      color: grey;
+      text-transform: uppercase;
+    }
   }
 }
