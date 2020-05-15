@@ -5,12 +5,11 @@ export function resizeText(textLength, element) {
 
   if (window.innerWidth >= 768) {
     element.style.fontSize = `${mappedFontSize / 6}rem`;
-    element.style.lineHeight = `${mappedLineHeight / 1}%`;
+    element.style.lineHeight = `${mappedLineHeight * 1.15}%`;
   } else {
     element.style.fontSize = `${mappedFontSize / 10}rem`;
-    element.style.lineHeight = `${mappedLineHeight / 1}%`;
+    element.style.lineHeight = `${mappedLineHeight * 1}%`;
   }
-  console.log(element.style.lineHeight);
 }
 
 function scaleValue(value, from, to) {

@@ -8,7 +8,6 @@ const checkboxExplainer = checkboxContainer.getElementsByTagName("p")[1];
 
 // See first browser supports DeviceMotionEvent
 if (window.DeviceMotionEvent) {
-  // console.log("DeviceMotionEvent is supported");
   // ...if DeviceMotionEvent is supported, load the script and handler
   loadScript("js/shake.js", setUpShakeHandler);
 }
@@ -25,17 +24,13 @@ function setUpShakeHandler() {
     if (this.checked) {
       // Checkbox is checked..
       checkboxOnOff.textContent = "on";
-
-      // Show instructions TODO remove from here
-      // checkboxExplainer.style.opacity = "1";
-
-      console.log("Checkbox checked ON: begin asking for permission and starting shake");
       // Only fire permission request if it exists in browser
       if (DeviceMotionEvent.requestPermission !== undefined) {
+        // Fire permission request
         DeviceMotionEvent.requestPermission()
           .then((response) => {
             if (response == "granted") {
-              console.log("response granted, keeping checkbox ON and enabling shake");
+              // Response granted
               // Start listening to device motion
               shakeEvent.start();
               // Register a shake event listener with function
@@ -58,7 +53,6 @@ function setUpShakeHandler() {
       // Turn checkbox off
       checkbox.checked = false;
       checkboxOnOff.textContent = "off";
-      console.log("Checkbox checked OFF: turn off shake");
       // Stop shakeEvent
       shakeEvent.stop();
       // Hide instructions
