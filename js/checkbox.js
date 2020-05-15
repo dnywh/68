@@ -41,8 +41,9 @@ function setUpShakeHandler() {
               // Register a shake event listener with function
               // Show instructions
               checkboxExplainer.style.opacity = "1";
+              // Listen for events
               window.addEventListener("shake", showRandomAdvice, false);
-              window.addEventListener("shake", testFunction, false);
+              window.addEventListener("shake", handleButtonAnimation, false);
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;
@@ -84,7 +85,13 @@ function loadScript(src, callbackfn) {
   document.documentElement.firstChild.appendChild(newScript);
 }
 
-function testFunction() {
-  console.log("shaking: test function!");
-  console.log(buttons);
+function handleButtonAnimation() {
+  buttons.forEach((button) => animateButton(button));
+}
+
+function animateButton(button) {
+  button.classList.add("shook");
+  button.onanimationend = () => {
+    button.classList.remove("shook");
+  };
 }
