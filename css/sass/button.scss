@@ -36,6 +36,29 @@ button:focus {
 
 button:active {
   transform: scale(0.8) rotate(6deg);
-  // Maintain rotation
-  // transform: rotate(6deg);
+}
+
+// Create button animation for when device is shook
+.shook {
+  animation-name: wobble;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.17, -1, 0, 1.58);
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(6deg);
+  }
+  15% {
+    transform: rotate(-36deg);
+  }
+  50% {
+    transform: rotate(36deg);
+  }
+  100% {
+    transform: rotate(6deg);
+  }
 }

@@ -25,7 +25,7 @@ advice.textContent = randomItem;
 resizeText(randomItem.length, advice);
 
 // 1. Access buttons
-const buttons = Array.from(document.getElementsByTagName("button"));
+export const buttons = Array.from(document.getElementsByTagName("button"));
 // Get the first, in advice-section, button
 const buttonOne = buttons[0];
 // Get the second, in attribution-section, button

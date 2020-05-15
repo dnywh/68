@@ -1,5 +1,5 @@
 // Import advice function for triggering upon shake
-import { showRandomAdvice } from "./app.js";
+import { showRandomAdvice, buttons } from "./app.js";
 // Get relevant checkbox elements from DOM
 const checkboxContainer = document.getElementById("checkbox-container");
 const checkbox = checkboxContainer.getElementsByTagName("input")[0];
@@ -10,7 +10,6 @@ const checkboxExplainer = checkboxContainer.getElementsByTagName("p")[1];
 if (window.DeviceMotionEvent) {
   // console.log("DeviceMotionEvent is supported");
   // ...if DeviceMotionEvent is supported, load the script and handler
-  // TODO Enable checkboxContainer only if DeviceMotionEvent supported
   loadScript("js/shake.js", setUpShakeHandler);
 }
 // Functions:
@@ -28,7 +27,7 @@ function setUpShakeHandler() {
       checkboxOnOff.textContent = "on";
 
       // Show instructions TODO remove from here
-      checkboxExplainer.style.opacity = "1";
+      // checkboxExplainer.style.opacity = "1";
 
       console.log("Checkbox checked ON: begin asking for permission and starting shake");
       // Only fire permission request if it exists in browser
@@ -42,7 +41,14 @@ function setUpShakeHandler() {
               // Register a shake event listener with function
               // Show instructions
               checkboxExplainer.style.opacity = "1";
-              window.addEventListener("shake", showRandomAdvice, false);
+              window.addEventListener(
+                "shake",
+                () => {
+                  showRandomAdvice;
+                  testFunction;
+                },
+                false
+              );
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;
@@ -82,4 +88,9 @@ function loadScript(src, callbackfn) {
   }
 
   document.documentElement.firstChild.appendChild(newScript);
+}
+
+function testFunction() {
+  console.log("test function!");
+  console.log(buttons);
 }
