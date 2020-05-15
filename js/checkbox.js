@@ -41,14 +41,8 @@ function setUpShakeHandler() {
               // Register a shake event listener with function
               // Show instructions
               checkboxExplainer.style.opacity = "1";
-              window.addEventListener(
-                "shake",
-                () => {
-                  showRandomAdvice;
-                  testFunction;
-                },
-                false
-              );
+              window.addEventListener("shake", showRandomAdvice, false);
+              window.addEventListener("shake", testFunction, false);
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;
@@ -91,6 +85,6 @@ function loadScript(src, callbackfn) {
 }
 
 function testFunction() {
-  console.log("test function!");
+  console.log("shaking: test function!");
   console.log(buttons);
 }
