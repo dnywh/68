@@ -20,11 +20,8 @@ button {
   font-size: 1.25rem;
   transition: all 150ms ease;
   font-weight: bold;
-  background-color: black;
-  color: white;
-  -webkit-text-fill-color: white;
-  border: 2px solid white;
   box-sizing: border-box;
+  transform: rotate(6deg);
 }
 
 button:hover,
@@ -78,8 +75,8 @@ a:hover {
 #advice-section,
 #attribution-section {
   scroll-snap-align: start;
-  height: 80vh;
-  padding: 10vh 5vw;
+  height: calc(100vh - 4rem);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -88,6 +85,8 @@ a:hover {
 @media (min-width: 769px) {
   #advice-section,
 #attribution-section {
+    height: calc(100vh - 6rem);
+    padding: 3rem;
     flex-basis: 50%;
   }
 }
@@ -114,6 +113,15 @@ a:hover {
   #advice-section blockquote p {
     font-size: 4vmin;
   }
+}
+#advice-section button {
+  font-size: 1em;
+  width: 8rem;
+  height: 8rem;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  -webkit-text-fill-color: black;
 }
 @media (min-width: 769px) {
   #advice-section button {
@@ -147,16 +155,29 @@ a:hover {
   writing-mode: vertical-rl;
   margin: 0;
 }
+@media (min-width: 769px) {
+  #attribution-section p:first-of-type {
+    top: 3rem;
+    right: 3rem;
+  }
+}
 #attribution-section p:first-of-type a {
   border-left: 2px solid #fec300;
 }
 #attribution-section p:last-of-type {
   text-align: right;
   line-height: 163.5%;
-  max-width: calc(100% - 4rem);
+  max-width: calc(100% - 8rem);
   position: absolute;
   bottom: 2rem;
   right: 2rem;
+}
+@media (min-width: 769px) {
+  #attribution-section p:last-of-type {
+    max-width: calc(100% - 12rem);
+    bottom: 3rem;
+    right: 3rem;
+  }
 }
 #attribution-section p:last-of-type a {
   border-bottom: 2px solid #fec300;

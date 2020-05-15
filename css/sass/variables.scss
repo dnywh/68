@@ -8,8 +8,10 @@ $color-initial: #fec300;
 $breakpoint-tablet: 769px;
 
 // Units
-$unit-edge: 2rem;
-$unit-button: 10rem;
+$unit-edge-small: 2rem;
+$unit-edge-large: 3rem;
+$unit-button-small: 8rem;
+$unit-button-large: 10rem;
 
 // Transitions
 $transition-basic: 150ms ease;

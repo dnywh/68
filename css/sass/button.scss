@@ -3,9 +3,9 @@
 // Reset them
 button {
   all: unset;
-  width: variables.$unit-button;
-  height: variables.$unit-button;
-  border-radius: variables.$unit-button;
+  width: variables.$unit-button-large;
+  height: variables.$unit-button-large;
+  border-radius: variables.$unit-button-large;
 
   cursor: pointer;
   text-align: center;
@@ -17,12 +17,13 @@ button {
 
   // Style
   font-weight: bold;
-  background-color: black;
-  color: white;
-  -webkit-text-fill-color: white;
-  border: 2px solid white;
+  // background-color: black;
+  // color: white;
+  // -webkit-text-fill-color: white;
+  // border: 2px solid white;
   // Force border inside
   box-sizing: border-box;
+  transform: rotate(6deg);
 }
 
 button:hover,

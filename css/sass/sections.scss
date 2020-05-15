@@ -5,8 +5,8 @@
 #attribution-section {
   scroll-snap-align: start;
 
-  height: 80vh;
-  padding: 10vh 5vw;
+  height: calc(100vh - #{variables.$unit-edge-small * 2});
+  padding: variables.$unit-edge-small;
 
   display: flex;
   flex-direction: column;
@@ -15,8 +15,11 @@
   // Animate the background colour changes
   transition: background variables.$transition-color;
 
-  // Make each section 50/50 on larger screens
   @media (min-width: variables.$breakpoint-tablet) {
+    // Increase padding on larger screens
+    height: calc(100vh - #{variables.$unit-edge-large * 2});
+    padding: variables.$unit-edge-large;
+    // Make each section 50/50 on larger screens
     flex-basis: 50%;
   }
 }
@@ -50,6 +53,14 @@
   }
 
   button {
+    // Style smaller button
+    font-size: 1em;
+    width: variables.$unit-button-small;
+    height: variables.$unit-button-small;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    -webkit-text-fill-color: black;
     // Don't show if screen is wide-enough for other button
     @media (min-width: variables.$breakpoint-tablet) {
       display: none;
@@ -71,8 +82,8 @@
       display: inline;
       // Position the button
       position: absolute;
-      top: calc(50% - #{variables.$unit-button / 2});
-      left: calc(50% - #{variables.$unit-button / 2});
+      top: calc(50% - #{variables.$unit-button-large / 2});
+      left: calc(50% - #{variables.$unit-button-large / 2});
       // Apply specific styling
       background-color: variables.$color-initial;
       border: 2px solid black;
@@ -86,11 +97,17 @@
     font-size: 0.875rem;
     // Position
     position: absolute;
-    top: variables.$unit-edge;
-    right: variables.$unit-edge;
+    top: variables.$unit-edge-small;
+    right: variables.$unit-edge-small;
     // Rotate
     writing-mode: vertical-rl;
     margin: 0;
+
+    @media (min-width: variables.$breakpoint-tablet) {
+      // Increase padding on larger screens
+      top: variables.$unit-edge-large;
+      right: variables.$unit-edge-large;
+    }
 
     a {
       // Create left border as the writing mode as been changed
@@ -103,11 +120,18 @@
     text-align: right;
     line-height: 163.5%;
     // Calculate variable width with a nice inner buffer
-    max-width: calc(100% - #{variables.$unit-edge * 2});
+    max-width: calc(100% - #{variables.$unit-edge-small * 4});
     // Position
     position: absolute;
-    bottom: variables.$unit-edge;
-    right: variables.$unit-edge;
+    bottom: variables.$unit-edge-small;
+    right: variables.$unit-edge-small;
+
+    // Increase units on larger screens
+    @media (min-width: variables.$breakpoint-tablet) {
+      max-width: calc(100% - #{variables.$unit-edge-large * 4});
+      bottom: variables.$unit-edge-large;
+      right: variables.$unit-edge-large;
+    }
 
     a {
       // Create bottom border
