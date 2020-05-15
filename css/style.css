@@ -91,10 +91,6 @@ a:hover {
   }
 }
 
-#advice-section blockquote {
-  height: 50vh;
-  display: flex;
-}
 #advice-section blockquote p {
   font-size: 6vmin;
   font-weight: bold;
@@ -115,7 +111,10 @@ a:hover {
   }
 }
 #advice-section button {
-  font-size: 1em;
+  position: absolute;
+  bottom: calc(2rem * 2);
+  left: calc(2rem - 0.5rem);
+  font-size: 1rem;
   width: 8rem;
   height: 8rem;
   background-color: white;

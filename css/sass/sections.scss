@@ -27,9 +27,6 @@
 // First section
 #advice-section {
   blockquote {
-    height: 50vh;
-    display: flex;
-
     p {
       font-size: 6vmin;
       font-weight: bold;
@@ -53,8 +50,13 @@
   }
 
   button {
-    // Style smaller button
-    font-size: 1em;
+    // Position the button
+    position: absolute;
+    bottom: calc(#{variables.$unit-edge-small} * 2);
+    // Optically align left side of button
+    left: calc(#{variables.$unit-edge-small} - 0.5rem);
+    // Style the button
+    font-size: 1rem;
     width: variables.$unit-button-small;
     height: variables.$unit-button-small;
     background-color: white;
