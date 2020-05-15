@@ -37,36 +37,38 @@ buttons.forEach((button) => (button.innerHTML = "Show me<br> another"));
 const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
 // 3. Prepare function to handle getting a random string
-export function showRandomAdvice() {
-  console.log("Changing the text");
+export function showRandomAdvice(axis) {
+  // Set default axis
+  if (axis !== "horizontal" && axis !== "vertical") {
+    axis = "vertical";
+  }
   // Handle colour changing
   counter = changeColor(counter, colorsArray, elementsForBackgroundColorChange, links);
   // Animate out old advice
-  advice.classList.add("end-pos");
+  advice.classList.add(`end-pos-${axis}`);
   // Access random advice string
   randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
 
   setTimeout(function () {
     advice.textContent = randomItem;
-    advice.classList.remove("end-pos");
+    advice.classList.remove(`end-pos-${axis}`);
     // Adjust font-size depending on length of advice string
     resizeText(randomItem.length, advice);
-    advice.classList.add("start-pos");
+    advice.classList.add(`start-pos-${axis}`);
     buttons.forEach((button) => (button.innerHTML = "And<br> another"));
   }, 200);
   setTimeout(function () {
-    advice.classList.remove("start-pos");
+    advice.classList.remove(`start-pos-${axis}`);
   }, 400);
 }
 
 // 4. Add event handlers to relevant interactions:
 // Handle on button click
 buttons.forEach((button) => button.addEventListener("click", showRandomAdvice));
-// buttonOne.addEventListener("click", showRandomAdvice);
 // Handle on spacebar or arrow-right key press
 document.addEventListener("keyup", (event) => {
   if (event.code === "Space" || event.code === "ArrowRight") {
-    showRandomAdvice();
+    showRandomAdvice("horizontal");
   }
 });
 

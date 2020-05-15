@@ -110,13 +110,21 @@ a:hover {
   line-height: 163.5%;
   transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
-#advice-section blockquote p.start-pos {
+#advice-section blockquote p.start-pos-vertical {
   opacity: 0;
   transform: translate(0, 1rem);
 }
-#advice-section blockquote p.end-pos {
+#advice-section blockquote p.end-pos-vertical {
   opacity: 0;
   transform: translate(0, -1rem);
+}
+#advice-section blockquote p.start-pos-horizontal {
+  opacity: 0;
+  transform: translate(-1rem, 0);
+}
+#advice-section blockquote p.end-pos-horizontal {
+  opacity: 0;
+  transform: translate(1rem, 0);
 }
 @media (min-width: 768px) {
   #advice-section blockquote p {

@@ -16,7 +16,7 @@ if (window.DeviceMotionEvent) {
 // Function for handling the response to a shake
 function setUpShakeHandler() {
   // Set up shakeEvent
-  const shakeEvent = new Shake({ threshold: 2 });
+  const shakeEvent = new Shake({ threshold: 4 });
   // Enable checkbox for switch permission
   checkboxContainer.style.display = "inline";
 
@@ -35,7 +35,7 @@ function setUpShakeHandler() {
               // Start listening to device motion
               shakeEvent.start();
               // Register a shake event listener with function
-              window.addEventListener("shake", showRandomAdvice, false);
+              window.addEventListener("shake", showRandomAdvice("horizontal"), false);
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;

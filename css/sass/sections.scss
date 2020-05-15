@@ -37,16 +37,26 @@
     p {
       font-weight: bold;
       line-height: 163.5%;
-      transition: transform variables.$transition-text-vertical, opacity variables.$transition-text-vertical;
+      transition: transform variables.$transition-text, opacity variables.$transition-text;
 
-      &.start-pos {
+      &.start-pos-vertical {
         opacity: 0;
         transform: translate(0, 1rem);
       }
 
-      &.end-pos {
+      &.end-pos-vertical {
         opacity: 0;
         transform: translate(0, -1rem);
+      }
+
+      &.start-pos-horizontal {
+        opacity: 0;
+        transform: translate(-1rem, 0);
+      }
+
+      &.end-pos-horizontal {
+        opacity: 0;
+        transform: translate(1rem, 0);
       }
 
       @media (min-width: variables.$breakpoint-tablet) {
