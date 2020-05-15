@@ -35,7 +35,7 @@ function setUpShakeHandler() {
               // Start listening to device motion
               shakeEvent.start();
               // Register a shake event listener with function
-              window.addEventListener("shake", showRandomAdvice("horizontal"), false);
+              window.addEventListener("shake", showRandomAdvice, false);
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;
