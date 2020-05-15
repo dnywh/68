@@ -1,9 +1,9 @@
-// Get checkbox-container
+// Import advice function for triggering upon shake
+import { showRandomAdvice } from "./app.js";
+// Get relevant checkbox elements from DOM
 const checkboxContainer = document.getElementById("checkbox-container");
 const checkbox = document.querySelector("input[name=allowShake]");
 const checkboxSwitchSpan = document.getElementById("switch-span");
-
-console.log("Hello from checkbox.js");
 
 // See first browser supports DeviceMotionEvent
 if (window.DeviceMotionEvent) {
@@ -19,6 +19,7 @@ function setUpShakeHandler() {
   const shakeEvent = new Shake({ threshold: 2 });
   // Enable checkbox for switch permission
   checkboxContainer.style.display = "inline";
+
   // Listen to checkbox events
   checkbox.addEventListener("change", function () {
     if (this.checked) {
@@ -34,7 +35,7 @@ function setUpShakeHandler() {
               // Start listening to device motion
               shakeEvent.start();
               // Register a shake event listener with function
-              window.addEventListener("shake", handleRefresh, false);
+              window.addEventListener("shake", showRandomAdvice, false);
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;
@@ -70,8 +71,4 @@ function loadScript(src, callbackfn) {
   }
 
   document.documentElement.firstChild.appendChild(newScript);
-}
-
-function handleRefresh() {
-  console.log("shaking!!!");
 }

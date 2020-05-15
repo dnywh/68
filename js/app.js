@@ -2,6 +2,8 @@
 import { adviceArray } from "./advice.js";
 // Bring in colours
 import { colorsArray, changeColor } from "./colors.js";
+// Bring in function for resizing text
+import { resizeText } from "./resizeText.js";
 // Bring in checkbox script
 import "./checkbox.js";
 
@@ -35,7 +37,8 @@ buttons.forEach((button) => (button.innerHTML = "Show me<br> another"));
 const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
 // 3. Prepare function to handle getting a random string
-function showStaticRandomAdvice() {
+export function showRandomAdvice() {
+  console.log("Changing the text");
   // Handle colour changing
   counter = changeColor(counter, colorsArray, elementsForBackgroundColorChange, links);
   // Animate out old advice
@@ -58,31 +61,14 @@ function showStaticRandomAdvice() {
 
 // 4. Add event handlers to relevant interactions:
 // Handle on button click
-buttons.forEach((button) => button.addEventListener("click", showStaticRandomAdvice));
-// buttonOne.addEventListener("click", showStaticRandomAdvice);
+buttons.forEach((button) => button.addEventListener("click", showRandomAdvice));
+// buttonOne.addEventListener("click", showRandomAdvice);
 // Handle on spacebar or arrow-right key press
 document.addEventListener("keyup", (event) => {
   if (event.code === "Space" || event.code === "ArrowRight") {
-    showStaticRandomAdvice();
+    showRandomAdvice();
   }
 });
 
 // Allow :active styles to work on button
 document.addEventListener("touchstart", function () {}, true);
-
-function resizeText(textLength, element) {
-  const monotonicNumber = (1.1 / textLength) * 1000;
-  const mappedSize = scaleValue(monotonicNumber, [1, 30], [10, 30]);
-
-  if (window.innerWidth >= 768) {
-    element.style.fontSize = `${mappedSize / 6}rem`;
-  } else {
-    element.style.fontSize = `${mappedSize / 10}rem`;
-  }
-}
-
-function scaleValue(value, from, to) {
-  const scale = (to[1] - to[0]) / (from[1] - from[0]);
-  const capped = Math.min(from[1], Math.max(from[0], value)) - from[0];
-  return ~~(capped * scale + to[0]);
-}
