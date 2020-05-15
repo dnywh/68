@@ -7,7 +7,7 @@ import { resizeText } from "./resizeText.js";
 // Bring in checkbox script
 import "./checkbox.js";
 
-// Add a background colour the advice-section and prepare the counter
+// Prepare the advice-section and counter for colour changes
 const adviceSection = document.getElementById("advice-section");
 let counter = 0;
 adviceSection.style.backgroundColor = colorsArray[counter];
@@ -33,7 +33,6 @@ const buttonTwo = buttons[1];
 // Set button content
 buttons.forEach((button) => (button.innerHTML = "Show me<br> another"));
 
-// changeColor(counter - 1, colorsArray, adviceSection, links);
 const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
 // 3. Prepare function to handle getting a random string

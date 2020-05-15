@@ -2,8 +2,9 @@
 import { showRandomAdvice } from "./app.js";
 // Get relevant checkbox elements from DOM
 const checkboxContainer = document.getElementById("checkbox-container");
-const checkbox = document.querySelector("input[name=allowShake]");
-const checkboxSwitchSpan = document.getElementById("switch-span");
+const checkbox = checkboxContainer.getElementsByTagName("input")[0];
+const checkboxOnOff = checkboxContainer.getElementsByTagName("span")[0];
+const checkboxExplainer = checkboxContainer.getElementsByTagName("p")[1];
 
 // See first browser supports DeviceMotionEvent
 if (window.DeviceMotionEvent) {
@@ -16,7 +17,7 @@ if (window.DeviceMotionEvent) {
 // Function for handling the response to a shake
 function setUpShakeHandler() {
   // Set up shakeEvent
-  const shakeEvent = new Shake({ threshold: 4 });
+  const shakeEvent = new Shake({ threshold: 6 });
   // Enable checkbox for switch permission
   checkboxContainer.style.display = "inline";
 
@@ -24,7 +25,11 @@ function setUpShakeHandler() {
   checkbox.addEventListener("change", function () {
     if (this.checked) {
       // Checkbox is checked..
-      checkboxSwitchSpan.textContent = "on";
+      checkboxOnOff.textContent = "on";
+
+      // Show instructions TODO remove from here
+      checkboxExplainer.style.opacity = "1";
+
       console.log("Checkbox checked ON: begin asking for permission and starting shake");
       // Only fire permission request if it exists in browser
       if (DeviceMotionEvent.requestPermission !== undefined) {
@@ -35,11 +40,15 @@ function setUpShakeHandler() {
               // Start listening to device motion
               shakeEvent.start();
               // Register a shake event listener with function
+              // Show instructions
+              checkboxExplainer.style.opacity = "1";
               window.addEventListener("shake", showRandomAdvice, false);
             } else {
               // No permission granted: turn checkbox back off
               checkbox.checked = false;
-              checkboxSwitchSpan.textContent = "off";
+              checkboxOnOff.textContent = "off";
+              // Hide instructions
+              checkboxExplainer.style.opacity = "0";
             }
           })
           .catch(console.error);
@@ -47,10 +56,12 @@ function setUpShakeHandler() {
     } else {
       // Turn checkbox off
       checkbox.checked = false;
-      checkboxSwitchSpan.textContent = "off";
+      checkboxOnOff.textContent = "off";
       console.log("Checkbox checked OFF: turn off shake");
       // Stop shakeEvent
       shakeEvent.stop();
+      // Hide instructions
+      checkboxExplainer.style.opacity = "0";
     }
   });
 }

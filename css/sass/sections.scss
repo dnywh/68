@@ -111,7 +111,7 @@
   }
 
   // Style the site credits
-  p:first-of-type {
+  p.site-credits {
     font-size: 0.875rem;
     // Position
     position: absolute;
@@ -136,7 +136,7 @@
   }
 
   // Style the advice credits
-  p:last-of-type {
+  p.advice-credits {
     text-align: right;
     line-height: variables.$unit-line-height;
     // Calculate variable width with a nice inner buffer

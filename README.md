@@ -17,3 +17,5 @@ Solicited unsolicited advice.
 - Scale value for the above: https://gist.github.com/fpillet/993002
 
 - Shake.js by Alex Gibson
+
+- https://css-tricks.com/the-checkbox-hack/
