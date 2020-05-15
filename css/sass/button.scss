@@ -10,7 +10,7 @@ button {
   cursor: pointer;
   text-align: center;
   font-size: 1.25rem;
-  transition: all variables.$transition-basic;
+  transition: transform variables.$transition-basic, background-color variables.$transition-color;
 
   // Stop highlight on tap
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -35,5 +35,7 @@ button:focus {
 }
 
 button:active {
-  transform: scale(0.9);
+  transform: scale(0.8) rotate(6deg);
+  // Maintain rotation
+  // transform: rotate(6deg);
 }

@@ -28,6 +28,8 @@
 
 // First section
 #advice-section {
+  // Set to initial background-colour
+  background-color: variables.$color-initial;
   // Clip text if necessary
   overflow: hidden;
 
@@ -109,6 +111,8 @@
     // Rotate
     writing-mode: vertical-rl;
     margin: 0;
+    // Stop from running into advice credits
+    max-height: 60%;
 
     @media (min-width: variables.$breakpoint-tablet) {
       // Increase padding on larger screens

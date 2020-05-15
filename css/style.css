@@ -18,7 +18,7 @@ button {
   cursor: pointer;
   text-align: center;
   font-size: 1.25rem;
-  transition: all 150ms ease;
+  transition: transform 150ms ease, background-color 800ms ease;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   font-weight: bold;
   box-sizing: border-box;
@@ -34,7 +34,7 @@ button:focus {
 }
 
 button:active {
-  transform: scale(0.9);
+  transform: scale(0.8) rotate(6deg);
 }
 
 ::selection {
@@ -102,6 +102,7 @@ a:hover {
 }
 
 #advice-section {
+  background-color: #fec300;
   overflow: hidden;
 }
 #advice-section blockquote p {
@@ -166,6 +167,7 @@ a:hover {
   right: 2rem;
   writing-mode: vertical-rl;
   margin: 0;
+  max-height: 60%;
 }
 @media (min-width: 768px) {
   #attribution-section p:first-of-type {
@@ -193,6 +195,12 @@ a:hover {
 }
 #attribution-section p:last-of-type a {
   border-bottom: 2px solid #fec300;
+}
+
+@media (min-width: 768px) {
+  #checkbox-container {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
