@@ -3,8 +3,6 @@
 // Both sections
 #advice-section,
 #attribution-section {
-  scroll-snap-align: start;
-
   height: calc(100vh - #{variables.$unit-edge-small * 2});
   padding: variables.$unit-edge-small;
 
@@ -15,6 +13,10 @@
   // Animate the background colour changes
   transition: background variables.$transition-color;
 
+  // Only do scroll snapping on smaller breakpoints
+  @media (max-width: variables.$breakpoint-tablet) {
+    scroll-snap-align: start;
+  }
   @media (min-width: variables.$breakpoint-tablet) {
     // Increase padding on larger screens
     height: calc(100vh - #{variables.$unit-edge-large * 2});
@@ -26,12 +28,15 @@
 
 // First section
 #advice-section {
+  // Clip text if necessary
+  overflow: hidden;
+
   blockquote {
     p {
       font-size: 6vmin;
       font-weight: bold;
       line-height: 163.5%;
-      transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      transition: transform variables.$transition-text-vertical, opacity variables.$transition-text-vertical;
 
       &.start-pos {
         opacity: 0;
@@ -122,7 +127,7 @@
     text-align: right;
     line-height: 163.5%;
     // Calculate variable width with a nice inner buffer
-    max-width: calc(100% - #{variables.$unit-edge-small * 4});
+    max-width: calc(100% - #{variables.$unit-edge-small * 3});
     // Position
     position: absolute;
     bottom: variables.$unit-edge-small;

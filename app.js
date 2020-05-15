@@ -13,11 +13,11 @@ const links = document.getElementsByTagName("a");
 // Style `button` fill
 
 // Target the element to house the chosen string
-const element = document.getElementById("advice");
+const advice = document.getElementById("advice");
 // Get a random item from advice array
 let randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
-// Add random item to element for page load
-element.textContent = randomItem;
+// Set advice to random string for page load
+advice.textContent = randomItem;
 
 // 1. Access buttons
 const buttons = Array.from(document.getElementsByTagName("button"));
@@ -33,21 +33,23 @@ const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
 // 3. Prepare function to handle getting a random string
 function showRandomAdvice() {
-  // Running function...
   // Handle colour changing
   counter = changeColor(counter, colorsArray, elementsForBackgroundColorChange, links);
-
-  element.classList.add("end-pos");
+  // Animate out old advice
+  advice.classList.add("end-pos");
+  // Access random advice string
   randomItem = adviceArray[Math.floor(Math.random() * adviceArray.length)];
 
   setTimeout(function () {
-    element.textContent = randomItem;
-    element.classList.remove("end-pos");
-    element.classList.add("start-pos");
+    advice.textContent = randomItem;
+    advice.classList.remove("end-pos");
+    // Adjust font-size depending on length of advice string
+    resizeText(randomItem.length, advice);
+    advice.classList.add("start-pos");
     buttons.forEach((button) => (button.innerHTML = "And<br> another"));
   }, 200);
   setTimeout(function () {
-    element.classList.remove("start-pos");
+    advice.classList.remove("start-pos");
   }, 400);
 }
 
@@ -61,3 +63,23 @@ document.addEventListener("keyup", (event) => {
     showRandomAdvice();
   }
 });
+
+// Allow :active styles to work on button
+document.addEventListener("touchstart", function () {}, true);
+
+function resizeText(textLength, element) {
+  const monotonicNumber = (1.1 / textLength) * 1000;
+  const mappedSize = scaleValue(monotonicNumber, [1, 30], [10, 30]);
+
+  if (window.innerWidth >= 768) {
+    element.style.fontSize = `${mappedSize / 6}rem`;
+  } else {
+    element.style.fontSize = `${mappedSize / 10}rem`;
+  }
+}
+
+function scaleValue(value, from, to) {
+  const scale = (to[1] - to[0]) / (from[1] - from[0]);
+  const capped = Math.min(from[1], Math.max(from[0], value)) - from[0];
+  return ~~(capped * scale + to[0]);
+}

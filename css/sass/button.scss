@@ -12,8 +12,8 @@ button {
   font-size: 1.25rem;
   transition: all variables.$transition-basic;
 
-  // Set a slight inner padding to force spacing
-  // padding: 0.25rem;
+  // Stop highlight on tap
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   // Style
   font-weight: bold;
