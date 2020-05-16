@@ -1,3 +1,5 @@
+<img src="https://user-images.githubusercontent.com/3104761/82107057-421fe180-9768-11ea-91b5-96358a18c337.jpg" width="100">
+
 # 68
 Solicited unsolicited advice from Kevin Kelly, served one at a time.
 
