@@ -31,5 +31,3 @@ with Reserved Font Name "PT Root UI"._
 - CSS-Tricks' [link and button highlight snippet](https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/) and [checkbox styling guide](https://css-tricks.com/the-checkbox-hack/)
 - fpillet's gist for [scaling values between two ranges](https://gist.github.com/fpillet/993002)
 - My brother Noah for explaining what a 'monotonically decreasing function' is and how to use it for dynamic font-size and line-height
-
-🎱
