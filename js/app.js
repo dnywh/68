@@ -24,7 +24,7 @@ advice.textContent = randomItem;
 // Adjust font-size depending on length of advice string
 resizeText(randomItem.length, advice);
 
-// 1. Access buttons
+// Access buttons
 export const buttons = Array.from(document.getElementsByTagName("button"));
 // Get the first, in advice-section, button
 const buttonOne = buttons[0];
@@ -35,7 +35,7 @@ buttons.forEach((button) => (button.innerHTML = "Show me<br> another"));
 
 const elementsForBackgroundColorChange = [adviceSection, buttonTwo];
 
-// 3. Prepare function to handle getting a random string
+// Prepare function to handle getting a random string
 export function showRandomAdvice(axis) {
   // Set default axis
   if (axis !== "horizontal" && axis !== "vertical") {
@@ -61,7 +61,7 @@ export function showRandomAdvice(axis) {
   }, 400);
 }
 
-// 4. Add event handlers to relevant interactions:
+// Add event handlers to relevant interactions:
 // Handle on button click
 buttons.forEach((button) => button.addEventListener("click", showRandomAdvice));
 // Handle on spacebar or arrow-right key press

@@ -3,6 +3,7 @@ export function resizeText(textLength, element) {
   const mappedFontSize = scaleValue(monotonicNumber, [1, 30], [10, 30]);
   const mappedLineHeight = scaleValue(monotonicNumber, [1, 30], [160, 130]);
 
+  // Apply slightly different styling depending on screen width
   if (window.innerWidth >= 834) {
     element.style.fontSize = `${mappedFontSize / 6}rem`;
     element.style.lineHeight = `${mappedLineHeight * 1.05}%`;
@@ -12,6 +13,7 @@ export function resizeText(textLength, element) {
   }
 }
 
+// Prepare function for scaling/modulating values from one range to another
 function scaleValue(value, from, to) {
   const scale = (to[1] - to[0]) / (from[1] - from[0]);
   const capped = Math.min(from[1], Math.max(from[0], value)) - from[0];

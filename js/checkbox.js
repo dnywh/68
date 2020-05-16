@@ -33,10 +33,9 @@ function setUpShakeHandler() {
               // Response granted
               // Start listening to device motion
               shakeEvent.start();
-              // Register a shake event listener with function
               // Show instructions
               checkboxExplainer.style.opacity = "1";
-              // Listen for events
+              // Listen for shake and then trigger two functions
               window.addEventListener("shake", showRandomAdvice, false);
               window.addEventListener("shake", handleButtonAnimation, false);
             } else {

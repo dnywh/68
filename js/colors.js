@@ -1,8 +1,8 @@
 const yellow = "#FEC300";
 const green = "#BDD00C";
 const cyan = "#77D6BE";
-const blue = "#3D98C1";
-const purple = "#CD72d5";
+const blue = "#54A4C9";
+const purple = "#CD72D5";
 const red = "#F75151";
 const orange = "#F68128";
 export const colorsArray = [yellow, green, cyan, blue, purple, red, orange];
